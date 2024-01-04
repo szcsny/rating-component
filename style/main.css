@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --dark-blue: #262e38;
+    --light-gray: #969fad;
+    --medium-gray: #7c8798;
+    --orange: #fc7614;
+    --white: #ffffff;
+    --black: #131518;
+    --gradient: linear-gradient(#232a34, #181e27);
+}
+
+html, body {
+    background-color: var(--black);
+    font-family: 'Overpass', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 0.875rem;
+    color: var(--light-gray);
+    line-height: 1.375rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 700;
+    color: var(--medium-gray);
+    background-color: var(--dark-blue);
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.star {
+    background-color: var(--dark-blue);
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-component {
+    background: var(--gradient);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    max-width: min(90%, 412px);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    width: 42px;
+    height: 42px;
+}
+
+.btn:hover {
+    background-color: var(--light-gray);
+    color: var(--white);
+    transform: scale(1.1);
+    transition: all ease-in .1s;
+}
+
+.clicked {
+    background-color: var(--orange);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.clicked:hover {
+    background-color: var(--orange);
+}
+
+.clicked::after {
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    animation: ripple .3s ease-out;
+}
+
+#submit-button {
+    background-color: var(--orange);
+    color: var(--white);
+    width: 100%;
+    text-transform: uppercase;
+    padding: .75rem;
+    letter-spacing: 1.8px;
+}
+
+#submit-button:hover,
+#submit-button:focus {
+    background-color: var(--white);
+    color: var(--orange);
+    transition: all ease-out .1s;
+}
+
+#second-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thankyou-img {
+    margin-bottom: 1.5rem;
+}
+
+.result-text {
+    color: var(--orange);
+    background-color: var(--dark-blue);
+    border-radius: 2rem;
+    padding: .375rem .75rem;
+}
+
+#second-page p {
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 1rem;
+    color: var(--medium-gray);
+}
+
+@media (min-width: 600px){
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: .875rem;
+    }
+
+    .btn {
+        width: 51px;
+        height: 51px;
+    }
+}
+
+@keyframes ripple {
+    0% {
+        border-color: var(--orange);
+        opacity: .8;
+        height: 100%;
+        width: 100%;
+        top: -2px;
+        left: -2px;
+    }
+
+    100% {
+        opacity: 0;
+        height: 200%;
+        width: 200%;
+        top: calc(-2px - 50%);
+        left: calc(-2px - 50%);
+    }
+}
